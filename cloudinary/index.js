@@ -12,7 +12,7 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
     cloudinary,
     params: {
-        folder: 'yelpcamp',
+        folder: 'campscout',
         allowedFormats: ['jpeg', 'png', 'jpg'],
     }
 });
