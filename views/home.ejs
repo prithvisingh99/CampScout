@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampScout</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+body {
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://res.cloudinary.com/dyg1vtjph/image/upload/v1708762995/YELPCAMP/rpzsrnpj1xhiblmns5cj.jpg");
+    background-size: cover;
+    background-position: center;
+    text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
+}
+.cover-container {
+  max-width: 60vw;
+}
+
+.nav-link{
+    color: rgba(255,255,255,0.5);
+    font-weight: 600;
+    border-bottom: white 2px solid transparent;
+}
+
+.nav-link:hover{
+    color: white;
+    border-bottom: white 2px solid;
+}
+
+.nav-link:hover{
+    color: rgba(255,255,255,0.5);
+    border-bottom-color:rgba(255,255,255,0.5);
+}
+
+.nav-link.active {
+    color: white;
+    border-bottom-color:white;
+
+}
+
+.btn-secondary, .btn-secondary:hover{
+    color: #333;
+    text-shadow: none;
+}
+</style>
+
+</head>
+
+<body class="d-flex text-center text-white bg-dark">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <header class="mb-auto">
+            <div>
+                <h3 class="float-md-left mb-0">CampScout</h3>
+                <nav class="nav nav-masthead justify-content-center float-md-right">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link" href="/campground">Campgrounds</a>
+                    <% if(!currentuser) { %>
+                    <a class="nav-link" href="/login">Login</a>
+                    <a class="nav-link" href="/register">Register</a>
+                    <% } else { %>
+                    <form action="/logout" method="post"><button class="btn nav-link">Logout</button></form>
+                    <% } %>
+                </nav>
+            </div>
+        </header>
+        <main class="px-3">
+            <h1>CampScout</h1>
+            <p class="lead"> Welcome to CampScout! <br> Jump right in and explore our many campgrounds. <br>
+                Feel free to share some of your own and comment on others!</p>
+            <a href="/campground" class="btn btn-lg btn-secondary font-weight-bold border-white bg-white">View
+                Campgrounds</a>
+        </main>
+
+        <footer class="mt-auto text-white-50">
+            <p>&copy; 2024 </p>
+        </footer>
+
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

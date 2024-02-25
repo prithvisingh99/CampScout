@@ -1,0 +1,61 @@
+<% layout('layouts/boilerplate.ejs')%>
+<h1>Add New Campground</h1>
+<form class="row g-3 needs-validation" action="/campground" method="POST" enctype="multipart/form-data" novalidate>
+    <div class="col-md-6">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Name" name="name" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Provide valid Name
+        </div>
+    </div>
+    <div class="col-md-6">
+        <label for="Location" class="form-label">Location</label>
+        <input type="text" placeholder="City,State" class="form-control" id="location" name="location" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Provide valid location
+        </div>
+    </div>
+    <div class="col-md-6">
+        <label for="price" class="form-label">Price</label>
+        <div class="input-group">
+            <span class="input-group-text">Rupee</span>
+            <input type="number" class="form-control" id="price" placeholder="Price" name="price" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Enter valid number.
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <label for="image" class="form-label">Image</label>
+        <input id="image" class="form-control" type="file" name="image" multiple required>
+        <div class="invalid-feedback">
+            Provide valid Image
+        </div>
+    </div>
+    <div class="col-md-12">
+        <label for="description" class="form-label">Description</label><br>
+        <textarea class="form-control" id="description" name="description" required></textarea>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Don't go without description please!
+        </div>
+    </div>
+    <div class="col-md-1">
+        <button type="submit" class="btn btn-primary">Add</button>
+    </div>
+    <div class="col-md-1">
+        <a href="/campground" class="btn btn-danger">Cancel</a>
+    </div>
+</form>
+

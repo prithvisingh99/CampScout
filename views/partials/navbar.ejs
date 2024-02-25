@@ -1,0 +1,23 @@
+<nav class="navbar sticky-top navbar-expand-sm bg-dark border-bottom border-body" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img src="https://res.cloudinary.com/dyg1vtjph/image/upload/v1708698467/YELPCAMP/gxkq3bwrkf53uyqld3ta.jpg" width="40px" height="auto" alt="CampScout"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" aria-current="page" href="/">Home</a>
+                <a class="nav-link" href="/campground">Campgrounds</a>
+                <a class="nav-link" href="/campground/add">New Campground</a>
+            </div>
+            <div class="navbar-nav ms-auto">
+                <%if(!currentuser){%>
+                <a href="/login" class="nav-link">Login</a>
+                <a href="/register" class="nav-link">Register</a>
+                <%} else {%>
+                <form action="/logout" method="post"><button class="btn nav-link">Logout</button></form>
+                <%}%>
+            </div>
+        </div>
+    </div>
+</nav>

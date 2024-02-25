@@ -1,0 +1,81 @@
+<% layout('layouts/boilerplate.ejs')%>
+<h1>Edit your Campground</h1>
+<form class="row g-3 needs-validation" action="/campground/<%=campground._id%>?_method=PUT" method="POST" enctype="multipart/form-data" novalidate>
+    <div class="col-md-6">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Name" name="name" value="<%=campground.name%>" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Provide valid Name
+        </div>
+    </div>
+    <div class="col-md-6">
+        <label for="Location" class="form-label">Location</label>
+        <input type="text" placeholder="City,State" class="form-control" id="location" name="location" value="<%=campground.location%>" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Provide valid location
+        </div>
+    </div>
+    <div class="col-md-6">
+        <label for="price" class="form-label">Price</label>
+        <div class="input-group">
+            <span class="input-group-text">Rupee</span>
+            <input type="number" class="form-control" id="price" placeholder="Price" name="price" value="<%=campground.price%>" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Enter valid number.
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="mb-3">
+            <div class="form-file custom-file">
+                <label for="image" class="form-label">
+                    <span class="form-file-text custom-file-label">Add more Image[s]</span>
+                </label>
+                <input class="form-control" type="file" id="image" name="image" multiple>
+
+                <div class="invalid-feedback">
+                    Provide valid Image
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <label for="description" class="form-label">Description</label><br>
+        <textarea class="form-control" id="description" name="description" required><%= campground.description %></textarea>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Don't go without description please!
+        </div>
+    </div>
+    <div class="col-md-1">
+        <button type="submit" class="btn btn-primary">Update</button>
+    </div>
+    <div class="col-md-1">
+        <a href="/campground/<%=campground._id%>" class="btn btn-danger">Cancel</a>
+    </div>
+    <div class="col-md-12">
+    <% campground.image.forEach((img, i) => { %>
+        <img src="<%= img.url %>" alt="Image not rendered" class="img-thumbnail" width="200" height="200">
+        <% if (campground.image.length > 1) { %>
+            <input type="checkbox" id="image-<%= i %>" name="deleteImage[]" value="<%= img.filename %>">
+            <label for="image-<%= i %>">Delete?</label>
+        <% } else { %>
+            <input type="checkbox" id="image-<%= i %>" name="deleteImage[]" value="<%= img.filename %>" disabled>
+            <label for="image-<%= i %>" style="color: gray;">Delete?</label>
+        <% } %>
+    <% }); %>
+</div>
+
+</form>
+</div>
